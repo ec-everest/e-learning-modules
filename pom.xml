@@ -1,60 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>terradue</groupId>
-  <artifactId>e-learning</artifactId>
-  <packaging>pom</packaging>
-  <name>e-learning</name>
-  <parent>
-    <groupId>com.terradue</groupId>
-    <artifactId>dcs-python-parent</artifactId>
-    <version>2.0.0</version>
-  </parent>
+  <groupId>com.terradue</groupId>
+  <artifactId>everest-e-learning</artifactId>
+  <packaging>rpm</packaging>
+  <name>everest-e-learning</name>
   <description>EVER-EST e-learning services</description>
   <version>0.1-SNAPSHOT</version>
   <properties>
-    <summary>EVER-EST e-learning services</summary>
-    <description>EVER-EST e-learning services</description>
-    <community>ever-est</community>
-    <yumRepo>ever-est</yumRepo>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.deploy.skip>true</maven.deploy.skip>
   </properties>
-  <scm>
-    <connection>scm:git:ssh://git@github.com/ever-est/e-learning</connection>
-    <developerConnection>scm:git:ssh://git@github.com/ever-est/e-learning</developerConnection>
-    <url>https://github.com/ever-est/e-learning</url>
-    <tag>HEAD</tag>
-  </scm>
-  <profiles>
-    <profile>
-      <id>package-app</id>
-      <activation>
-         <property>
-           <name>env</name>
-           <value>ci</value>
-         </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>rpm-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>generate-rpm</id>
-                <goals>
-                  <goal>rpm</goal>
-                </goals>
-                <configuration>
-                  <!-- Set here the dependencies installed with 'sudo yum install'-->
-                  <requires>
-                    <require>miniconda</require>
-                  </requires>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+  <repositories>
+    <repository>
+      <id>repository.terradue.com</id>
+      <name>repository.terradue.com-releases</name>
+      <url>http://repository.terradue.com/artifactory/libs-release-public</url>
+      <releases>
+        <enabled>true</enabled>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <snapshots/>
+      <id>repository.terradue.com</id>
+      <name>repository.terradue.com-releases</name>
+      <url>http://repository.terradue.com/artifactory/libs-release-public</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+        <executions>
+          <execution>
+            <id>copy-app-resources</id>
+            <phase>install</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>/workspace</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}/src/main/resources/</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>/workspace</directory>
+              <includes>
+                <include>**/*</include>
+              </includes>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>rpm-maven-plugin</artifactId>
+        <version>2.1.2</version>
+        <extensions>true</extensions>
+        <configuration>
+          <copyright>${project.inceptionYear}, Terradue, GPL</copyright>
+          <distribution>Terradue ${project.inceptionYear}</distribution>
+          <group>cream</group>
+          <packager>Terradue</packager>
+          <name>${project.artifactId}</name>
+          <defaultDirmode>775</defaultDirmode>
+          <defaultFilemode>644</defaultFilemode>
+          <defaultUsername>root</defaultUsername>
+          <defaultGroupname>root</defaultGroupname>
+          <autoRequires>false</autoRequires>
+          <autoProvides>false</autoProvides>
+          <description>EVER-EST e-learning services</description>
+          <summary>EVER-EST e-learning services</summary>
+          <mappings>
+            <mapping>
+              <directoryIncluded>false</directoryIncluded>
+              <recurseDirectories>true</recurseDirectories>
+              <directory>/workspace/</directory>
+              <sources>
+                <source>
+                  <location>${basedir}/src/main/resources/</location>
+                </source>
+              </sources>
+            </mapping>
+          </mappings>
+          <postinstallScriptlet>
+            <script>conda install -y --file /workspace/.dependencies/packages.list</script>
+            <fileEncoding>utf-8</fileEncoding>
+          </postinstallScriptlet>
+          <postremoveScriptlet>
+            <script>conda remove -y --file /workspace/.dependencies/packages.list</script>
+            <fileEncoding>utf-8</fileEncoding>
+          </postremoveScriptlet>
+          <provides>
+            <provide>${project.artifactId}</provide>
+          </provides>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.terradue</groupId>
+        <artifactId>rpmdeploy-maven-plugin</artifactId>
+        <version>1.2</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
