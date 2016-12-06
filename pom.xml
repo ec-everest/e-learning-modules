@@ -112,6 +112,9 @@
           <provides>
             <provide>${project.artifactId}</provide>
           </provides>
+          <requires>
+            <require>miniconda</require>
+          </requires>
         </configuration>
       </plugin>
       <plugin>
