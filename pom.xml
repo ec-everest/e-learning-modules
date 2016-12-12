@@ -105,10 +105,6 @@
             <script>conda install -y --file /workspace/.dependencies/packages.list</script>
             <fileEncoding>utf-8</fileEncoding>
           </postinstallScriptlet>
-          <postremoveScriptlet>
-            <script>conda remove -y --file /workspace/.dependencies/packages.list</script>
-            <fileEncoding>utf-8</fileEncoding>
-          </postremoveScriptlet>
           <provides>
             <provide>${project.artifactId}</provide>
           </provides>
