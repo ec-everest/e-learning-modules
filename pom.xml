@@ -110,6 +110,8 @@
           </provides>
           <requires>
             <require>miniconda</require>
+            <require>java-1.8.0-openjdk-devel</require>
+            <require>snap</require>
           </requires>
         </configuration>
       </plugin>
