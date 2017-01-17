@@ -76,6 +76,7 @@ pathlib2=2.1.0=py27_0
 pcre=8.39=1
 pexpect=4.0.1=py27_0
 pickleshare=0.7.4=py27_0
+pil=1.1.7=py27_2
 pip=8.1.2=py27_0
 pixman=0.34.0=0
 proj4=4.9.2=0
