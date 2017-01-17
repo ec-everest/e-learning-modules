@@ -98,7 +98,7 @@
                 <source>
                   <location>${basedir}/src/main/resources/</location>
                   <excludes>
-                    <exclude>**/.dependencies**</exclude>
+                    <exclude>**/.dependencies/**</exclude>
                   </excludes>
                 </source>
               </sources>
@@ -111,7 +111,7 @@
                 <source>
                   <location>${basedir}/src/main/resources/</location>
                   <includes>
-                    <include>**/.dependencies**</include>
+                    <include>**/.dependencies/**</include>
                   </includes>
                 </source>
               </sources>
