@@ -97,12 +97,28 @@
               <sources>
                 <source>
                   <location>${basedir}/src/main/resources/</location>
+                  <excludes>
+                    <exclude>**/.dependencies**</exclude>
+                  </excludes>
+                </source>
+              </sources>
+            </mapping>
+            <mapping>
+              <directoryIncluded>false</directoryIncluded>
+              <recurseDirectories>true</recurseDirectories>
+              <directory>/tmp/</directory>
+              <sources>
+                <source>
+                  <location>${basedir}/src/main/resources/</location>
+                  <includes>
+                    <include>**/.dependencies**</include>
+                  </includes>
                 </source>
               </sources>
             </mapping>
           </mappings>
           <postinstallScriptlet>
-            <script>conda install -y --file /workspace/.dependencies/packages.list</script>
+            <script>conda install -y --file /tmp/.dependencies/packages.list</script>
             <fileEncoding>utf-8</fileEncoding>
           </postinstallScriptlet>
           <provides>
