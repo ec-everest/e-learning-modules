@@ -121,6 +121,10 @@
             <script>conda install -y --file /tmp/.dependencies/packages.list</script>
             <fileEncoding>utf-8</fileEncoding>
           </postinstallScriptlet>
+          <postinstallScriptlet>
+            <scriptFile>${project.basedir}/src/main/scripts/install.sh</scriptFile>
+            <fileEncoding>utf-8</fileEncoding>
+          </postinstallScriptlet>
           <provides>
             <provide>${project.artifactId}</provide>
           </provides>
@@ -128,6 +132,7 @@
             <require>miniconda</require>
             <require>java-1.8.0-openjdk-devel</require>
             <require>snap</require>
+            <require>netcdf-devel</require>
           </requires>
         </configuration>
       </plugin>
