@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+/opt/anaconda/bin/conda install -y --file /tmp/.dependencies/packages.list
+
 export PATH=/opt/anaconda/bin:$PATH
 
 R --vanilla <<EOF

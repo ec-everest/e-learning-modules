@@ -118,10 +118,6 @@
             </mapping>
           </mappings>
           <postinstallScriptlet>
-            <script>conda install -y --file /tmp/.dependencies/packages.list</script>
-            <fileEncoding>utf-8</fileEncoding>
-          </postinstallScriptlet>
-          <postinstallScriptlet>
             <scriptFile>${project.basedir}/src/main/scripts/install.sh</scriptFile>
             <fileEncoding>utf-8</fileEncoding>
           </postinstallScriptlet>
