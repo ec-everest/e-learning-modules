@@ -129,6 +129,7 @@
             <require>java-1.8.0-openjdk-devel</require>
             <require>snap</require>
             <require>netcdf-devel</require>
+            <require>pandoc</require>
           </requires>
         </configuration>
       </plugin>
