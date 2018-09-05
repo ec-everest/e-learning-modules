@@ -26,12 +26,12 @@ The Notebook web application stores the code, executes it and display its output
 ### Available Notebooks
 
 1. [Access Sentinel-1 product information and metadata](./src/main/resources/e-learning/01%20Access%20Sentinel-1%20product%20information%20and%20metadata.ipynb)
-2. [Plot Sentinel-1 subset](./blob/master/src/main/resources/e-learning/02%20Plot%20Sentinel-1%20subset.ipynb)
-3. [Making and using bathymetric maps in R with marmap](./blob/master/src/main/resources/e-learning/03%20Making%20and%20using%20bathymetric%20maps%20in%20R%20with%20marmap.ipynb)
-4. [Sentinel-2 vegetation indices over Camargue](./blob/master/src/main/resources/e-learning/04%20Sentinel-2%20vegetation%20indices%20over%20Camargue.ipynb)
-5. [Flood mapping with Sentinel-1](./blob/master/src/main/resources/e-learning/05%20Flood%20mapping%20with%20Sentinel-1.ipynb)
-6. [Preprocessing of Sentinel-1 SAR data](./blob/master/src/main/resources/e-learning/06%20Preprocessing%20of%20Sentinel-1%20SAR%20data.ipynb)
-7. [Algal bloom detection in MERIS FRS products with SNAP](./blob/master/src/main/resources/e-learning/07%20Algal%20bloom%20detection%20in%20MERIS%20FRS%20products%20with%20SNAP.ipynb)
-8. [Sentinel-3 hands-on](./blob/master/src/main/resources/e-learning/08%20Sentinel-3%20hands-on.ipynb)
-9. [Sentinel-1 backscatter profile for reference image used](./blob/master/src/main/resources/e-learning/09%20Sentinel-1%20backscatter%20profile%20for%20reference%20image%20used%20in%20flood%20analysis.ipynb)
+2. [Plot Sentinel-1 subset](./src/main/resources/e-learning/02%20Plot%20Sentinel-1%20subset.ipynb)
+3. [Making and using bathymetric maps in R with marmap](./src/main/resources/e-learning/03%20Making%20and%20using%20bathymetric%20maps%20in%20R%20with%20marmap.ipynb)
+4. [Sentinel-2 vegetation indices over Camargue](./src/main/resources/e-learning/04%20Sentinel-2%20vegetation%20indices%20over%20Camargue.ipynb)
+5. [Flood mapping with Sentinel-1](./src/main/resources/e-learning/05%20Flood%20mapping%20with%20Sentinel-1.ipynb)
+6. [Preprocessing of Sentinel-1 SAR data](./src/main/resources/e-learning/06%20Preprocessing%20of%20Sentinel-1%20SAR%20data.ipynb)
+7. [Algal bloom detection in MERIS FRS products with SNAP](./src/main/resources/e-learning/07%20Algal%20bloom%20detection%20in%20MERIS%20FRS%20products%20with%20SNAP.ipynb)
+8. [Sentinel-3 hands-on](./src/main/resources/e-learning/08%20Sentinel-3%20hands-on.ipynb)
+9. [Sentinel-1 backscatter profile for reference image used](./src/main/resources/e-learning/09%20Sentinel-1%20backscatter%20profile%20for%20reference%20image%20used%20in%20flood%20analysis.ipynb)
 
